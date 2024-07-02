@@ -157,6 +157,7 @@ func InitDB() *gorm.DB {
 			Conn: sqlDB,
 		}), &gorm.Config{
 			Logger: logger.Default.LogMode(logger.LogLevel(logLevel)),
+			DisableForeignKeyConstraintWhenMigrating: true,
 		})
 		if err != nil {
 			log.WithError(err).Panic("panic code: 154")
